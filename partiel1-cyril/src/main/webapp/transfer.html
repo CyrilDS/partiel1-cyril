@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery and web services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+$(function() {
+	
+	$("#GETJSON").click(function(){
+		 $.getJSON("http://localhost:8080/partiel1-cyril/api/transfer/one/1",
+				 
+				 function(data){
+			 
+			 var content = var content = "Account 1 =" + data.nameAccountA + "Amount = " + data.amount + ",Account 2 =" + data.nameAccountB;;
+			 $("<div/>", {
+			 html: content			 
+		 }).appendTo("body");	
+	 });
+});
+	
+});
+</script>
+
+</head>
+<body>
+	<div>
+		<button class="btn" id="GETJSON">Click me to get my transfer</button>
+	</div>
+
+</body>
+</html>
